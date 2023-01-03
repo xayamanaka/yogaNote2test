@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MemberPose index{% endblock %}
+
+{% block body %}
+    <h1>Member Pose</h1>
+    <h5>{{ member_name }}さんのNote</h5>
+    <table class="table">
+        <tbody>
+        {% for member_pose in member_poses %}
+            <tr>
+                <td>
+                    <img src="{{ asset('uploads/'~ member_pose.memberPoseImage) }}" width="100" height="100">
+                    {{ member_pose.memberPoseName }}
+                </td>
+            </tr>
+
+            <tr>
+                <td>{{ member_pose.memberPoseMemo }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{{ path('app_member_pose_edit', {'id': member_pose.id}) }}">edit</a>
+                    <hr class="hr1">
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_member_pose_add') }}">Add Pose from the List</a>
+    <br>
+    <a href="{{ path('app_member_pose_new') }}">Create new</a>
+    <a href="{{ path('app_member_add_all') }}">  Add ASHTANGA POSE</a>
+    {% include 'footer.html.twig' %}
+{% endblock %}

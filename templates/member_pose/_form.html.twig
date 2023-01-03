@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+<img src="{{ asset('uploads/'~ member_pose.memberPoseImage) }}" width="100" height="100">
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

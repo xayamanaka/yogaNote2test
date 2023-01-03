@@ -1,0 +1,6 @@
+{{ form_start(form) }}
+<img src="{{ asset('uploads/'~ base_pose.basePoseImage) }}" width="50" height="50">
+    {{ form_widget(form) }}
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit BasePose{% endblock %}
+
+{% block body %}
+    <h1>Edit BasePose</h1>
+
+    {{ include('base_pose/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_base_pose_index') }}">back to list</a>
+
+    {{ include('base_pose/_delete_form.html.twig') }}
+{% endblock %}

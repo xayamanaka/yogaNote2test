@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BasePose index{% endblock %}
+
+{% block body %}
+    <h1>Base Pose Index</h1>
+
+    <table class="table">
+        <tbody>
+        {% for base_pose in base_poses %}
+            <tr>
+                <td><p>{{ base_pose.basePoseName }}  : {{ base_pose.basePoseCategory }}: <img src="{{ asset('uploads/'~ base_pose.basePoseImage) }}" width="50" height="50"></td>
+            </tr>
+            <tr>
+                <td>{{ base_pose.basePoseDescription }}</td>
+            </tr>
+            <tr>
+
+            </tr>
+            <tr>
+                <td>
+                    <a href="{{ path('app_base_pose_show', {'id': base_pose.id}) }}">show</a>　
+                    <a href="{{ path('app_base_pose_edit', {'id': base_pose.id}) }}">edit</a>　
+                    <a href="{{ path('app_base_pose_edit_photo', {'id': base_pose.id}) }}">change image</a>
+                    <hr class="hr1">
+                </td>
+            </tr>
+
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_base_pose_new') }}">Create new</a>
+    <a href="{{ path('app_login') }}">Login</a>
+{% endblock %}

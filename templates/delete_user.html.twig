@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h5>アカウント削除ページ</h5>
+<h2>{{ member_name }}さんのNote</h2>
+<p>アカウントを削除したい方は下のボタンをクリックしてください。</p>
+    <form method="post" action="{{ path('app_user_deleted') }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <button class="btn">Delete</button>
+    </form>
+
+{% endblock %}

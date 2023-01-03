@@ -1,0 +1,25 @@
+body{
+    max-width: 960px;
+    width:100%;
+    margin: auto;
+}
+h1{
+    color: purple;
+}
+table{
+    width:100%;
+    display: flex;
+    overflow-wrap:normal;
+}
+td{
+    word-break:break-word;
+    overflow-wrap:normal;
+    border-bottom:20px;
+}
+.table td a{
+    color:gray;
+}
+
+textarea{
+    box-sizing: border-box;
+}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BasePose index{% endblock %}
+
+{% block body %}
+    <h1>BasePose index</h1>
+    <hr class="hr1">
+    <table class="table">
+        <tbody>
+        {% for base_pose in base_poses %}
+            <tr>
+                <td>{{ base_pose.id }}</td>
+                <td>{{ base_pose.basePoseName }}</td>
+                <td><img src="{{ asset('uploads/'~ base_pose.basePoseImage) }}" width="50" height="50"></td>
+                <td>{{ base_pose.basePoseCategory }}   </td>
+                <td>
+                    <a href="{{ path('app_base_pose_show', {'id': base_pose.id}) }}">show</a>
+                    <a href="{{ path('app_yoga_added', {'id': base_pose.id}) }}">add</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_member_pose_index') }}">Go Back to Member Page</a>
+{% endblock %}
